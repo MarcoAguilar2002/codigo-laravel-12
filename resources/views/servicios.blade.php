@@ -4,13 +4,19 @@
 
 @section('content')
 <h2>Servicios</h2>
-<ul>
+<tr>
     @if($servicios)
-        @foreach ($servicios as $item)
-            <li>{{$item['titulo']}}</li>
+        @foreach($servicios as $servicio)
+            <td><a href="{{ route('servicios.show', $servicio) }}">{{ $servicio->titulo }}</a></td>
         @endforeach
     @else
-        <li>No existe ningun servicio que mostrar</li>
+        <td colspan="4">No hay servicios que mostrar</td>
     @endif
-</ul>
+</tr>
+
+<tr>
+    <td colspan="4">{{$servicios->links() }}</td>
+</tr>
+
+
 @endsection
