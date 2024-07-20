@@ -6,27 +6,47 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <div class="row w-100">
-                <div class="col-3 d-flex justify-content-center">
+                <div class="col d-flex justify-content-center">
                     <div class="{{ request()->routeIs('home') ? 'activo' : '' }}">
                         <a class="nav-link text-white" aria-current="page" href="{{ route('home') }}">Inicio</a>
                     </div>
                 </div>
-                <div class="col-3 d-flex justify-content-center">
+                <div class="col d-flex justify-content-center">
                     <div class="{{ request()->routeIs('nosotros') ? 'activo' : '' }}">
                         <a class="nav-link text-white" href="{{ route('nosotros') }}">Nosotros</a>
                     </div>
                 </div>
-                <div class="col-3 d-flex justify-content-center">
+                <div class="col d-flex justify-content-center">
                     <div class="{{ request()->routeIs('servicios*') ? 'activo' : '' }}">
-                        <a class="nav-link text-white" href="{{ route('servicios') }}">Servicios</a>
+                        <a class="nav-link text-white" href="{{ route('servicios.index') }}">Servicios</a>
                     </div>
                 </div>
-                <div class="col-3 d-flex justify-content-center">
+                <div class="col d-flex justify-content-center">
                     <div class="{{ request()->routeIs('contacto') ? 'activo' : '' }}">
                         <a class="nav-link text-white" href="{{ route('contacto') }}">Contacto</a>
                     </div>
                 </div>
+
+                @guest
+                <div class="col d-flex justify-content-center">
+                    <div class="">
+                        <a class="nav-link text-white" href="{{ route('login') }}">Login</a>
+                    </div>
+                </div>
+                @else
+                <div class="col d-flex justify-content-center">
+                    <div class="">
+                        <a href="#" class="nav-link text-white" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+                    </div>
+                </div>
+                @endguest
             </div>
         </div>
     </div>
 </nav>
+
+@auth
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+@endauth

@@ -6,7 +6,9 @@
 
 <div class="d-flex justify-content-center mt-3 fw-bold position-relative">
     <h2 class="text-center w-100">Servicios</h2>
+    @auth
     <a href="{{ route('servicios.create') }}" class="btn btn-primary position-absolute end-0 me-3"> <i class="bi bi-plus-lg"></i> Añadir Servicio</a>
+    @endauth
 </div>
 
 <div class="d-flex justify-content-center mt-4">

@@ -3,7 +3,7 @@
 @section('title','Servicio |' .$servicio->titulo)
 
 @section('content')
-
+@auth
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card w-50">
         <div class="card-body">
@@ -23,5 +23,5 @@
         </div>
     </div>
 </div>
-
+@endauth
 @endsection

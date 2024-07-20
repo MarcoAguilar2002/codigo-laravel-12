@@ -6,8 +6,12 @@
 <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="card p-4" style="width: 100%; max-width: 600px;">
         <h2 class="card-title text-center">Contáctanos</h2>
+
+        @if(session('estado'))
+            {{session('estado')}}
+        @else
         <form action="{{ route('contacto') }}" method="POST">
-            @csrf
+            @csrf{{--Toquen para verificar que el formulario es seguro--}}
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre"  value="{{old('nombre')}}">
@@ -33,6 +37,7 @@
                 <button type="reset" class="btn btn-secondary">Cancelar</button>
             </div>
         </form>
+        @endif
     </div>
 </div>
 @endsection

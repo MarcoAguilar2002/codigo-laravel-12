@@ -6,7 +6,9 @@
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="card" style="width: 30rem;">
         <div class="card-header">
+            @auth
             <h4 class="mb-0 text-center">Editar Servicio</h4>
+            @endauth
         </div>
         <div class="card-body">
             @include('partials.validation-errors')
