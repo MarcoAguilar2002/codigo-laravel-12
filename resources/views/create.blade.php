@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
             @include('partials.validation-errors')
-            <form action="{{ route('servicios.store') }}" method="post">
+            <form action="{{ route('servicios.store') }}" method="post" enctype="multipart/form-data">
                 @include('partials.form', ['btnText' => 'Guardar'])
             </form>
         </div>

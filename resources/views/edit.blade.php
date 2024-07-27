@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
             @include('partials.validation-errors')
-            <form action="{{ route('servicios.update', $servicio) }}" method="POST">
+            <form action="{{ route('servicios.update', $servicio) }}" method="POST" enctype="multipart/form-data">
                 @method('PATCH')
                 @include('partials.form', ['btnText' => 'Actualizar'])
             </form>

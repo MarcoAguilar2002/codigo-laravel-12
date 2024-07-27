@@ -16,6 +16,7 @@
         <table class="table ">
             <thead class="table-light">
                 <tr>
+                    <th class="text-center">Imagen</th>
                     <th class="text-center">Título</th>
                     <th class="text-center">Acciones</th>
                 </tr>
@@ -24,6 +25,11 @@
                 @if($servicios && count($servicios) > 0)
                     @foreach($servicios as $servicio)
                         <tr>
+                            <td class="text-center">
+                                @if($servicio->image)
+                                <img src="/storage/{{$servicio->image}}" alt="{{$servicio->titulo}}" width="auto" height="50">
+                                @endif
+                            </td>
                             <td class="text-center">{{ $servicio->titulo }}</td>
                             <td class="text-center">
                                 <a href="{{ route('servicios.show', $servicio) }}" class="btn btn-primary"><i class="bi bi-eye"></i> Ver Servicio</a>
